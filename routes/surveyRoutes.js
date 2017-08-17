@@ -11,6 +11,11 @@ module.exports = app => {
 		res.send('Thank you for voting!');
 	});
 
+	app.post('/api/surveys/webhooks', (req, res) => {
+		console.log(req.body);
+		res.send({});
+	});
+
 	app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
 		//es6 restructuring. Out of req.body, I want to get all of these properties
 		//off the body thats added to req. The actual adding logic has to be added in.
